@@ -17,28 +17,35 @@ export default function reduxStateChannelMiddleware(channelName = 'state-channel
 
   // Note: using methods available in browsers which support BroadcastChannel
   return store => {
-    // Listener (not flux-standard-action)
+    // Listener
     broadcastChannel.addEventListener('message', messageEvent => store.dispatch({
       ...messageEvent.data,
       isBroadcastReceive: true
     }))
 
+    // Not adding `messageerror` listener to handle data which cannot be deserialized as such should be catched at serialization
+
     // Emitter
     return next => action => {
 
-      // When action is a thunk, proceed
-      if (!action.type) {
+      // When action is a thunk, wait until it's resolved
+      if (action instanceof Function) {
         return next(action)
       }
 
-      const {isBroadcastReceive, ...newAction} = action
+      const { isBroadcastReceive, ...newAction } = action
 
       // Don't repost if it's an action received from channel
       if (!isBroadcastReceive
         && !action.type.startsWith('persist/')
         && !blacklist.includes(action.type)
       ) {
-        broadcastChannel.postMessage(action)
+        try {
+          /** @throws {DOMException} - Cannot serialize (DataCloneError) */
+          broadcastChannel.postMessage(action)
+        } catch (error) {
+          console.error('reduxStateChannelMiddleware post message error:', error)
+        }
       }
 
       return next(newAction)
