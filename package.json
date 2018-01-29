@@ -1,16 +1,16 @@
 {
-  "name": "@piotr-cz/redux-state-channel",
+  "name": "@piotr-cz/redux-broadcast-middleware",
   "version": "1.0.0",
   "description": "Sync redux state using BroadcastChannel",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.es.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/piotr-cz/redux-state-channel.git"
+    "url": "https://github.com/piotr-cz/redux-broadcast-middleware.git"
   },
   "author": "Piotr Konieczny <hello@piotr.cz> (https://www.piotr.cz)",
   "license": "MIT",
-  "homepage": "https://github.com/piotr-cz/redux-state-channel",
+  "homepage": "https://github.com/piotr-cz/redux-broadcast-middleware",
   "keywords": [
     "redux",
     "crosstab",

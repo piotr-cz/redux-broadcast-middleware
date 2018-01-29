@@ -1,4 +1,4 @@
-# Redux state channel middleware
+# Redux crosstab broadcast channel middleware
 
 Lightweight Redux middleware to sync state across tabs with same origin using [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel).
 
@@ -8,12 +8,12 @@ however you can use polyfills. For list see [this Web fundamentals article](http
 ## Installation
 
 ```sh
-npm install --save @piotr-cz/redux-state-channel
+npm install --save @piotr-cz/redux-broadcast-middleware
 ```
 or
 
 ```
-yarn add @piotr-cz/redux-state-channel
+yarn add @piotr-cz/redux-broadcast-middleware
 ```
 
 ## Setup
@@ -23,14 +23,14 @@ Import the middleware and include it in `applyMiddleware` when creating Redux st
 ```js
 // configureStore.js
 
-import reduxStateChannelMiddleware from '@piotr-cz/redux-state-channel'
+import reduxBroadcastMiddleware from '@piotr-cz/redux-broadcast-middleware'
 
 //...
 
 const store = createStore(
   rootReducer,
   applyMiddleware(
-    reduxStateChannelMiddleware(
+    reduxBroadcastMiddleware(
       'state-channel',
       ['DO_NOT_SYNC_THIS_ACTION']
     )
