@@ -10,6 +10,11 @@ export default function reduxStateChannelMiddleware(channelName = 'state-channel
 
   // When BroadcastChannel is not available, return opaque middleware
   if (!window.BroadcastChannel) {
+
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('BroadcastChannel API is not available')
+    }
+
     return store => next => action => next(action)
   }
 
