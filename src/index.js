@@ -6,7 +6,7 @@
  * @param {array} [blacklist]
  * @return {function}
  */
-export default function reduxStateChannelMiddleware(channelName = 'state-channel', blacklist = []) {
+export default function reduxBroadcastMiddleware(channelName = 'state-channel', blacklist = []) {
 
   // When BroadcastChannel is not available, return opaque middleware
   if (!window.BroadcastChannel) {
