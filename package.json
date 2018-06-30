@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "build": "rollup --config rollup.config.js",
+    "npmpublish": "npm publish --access=public",
     "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
