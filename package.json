@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Sync redux state using BroadcastChannel",
   "main": "dist/index.js",
-  "jsnext:main": "dist/index.es.js",
+  "browser": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/piotr-cz/redux-broadcast-middleware.git"

@@ -45,7 +45,7 @@ const store = createStore(
 
 ## Notes
 
-- Middleware doesn't sync [Redux-persist](https://www.npmjs.com/package/redux-persist) actions (starting with `persist/` prefix)
+- Middleware doesn't sync [Redux-persist](https://www.npmjs.com/package/redux-persist) actions (starting with `persist/` prefix) by puprose
 - Errors, Functions and DOM nodes cannot be broadcasted. For more info read [MDN: The structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
 
 ## Similar projects

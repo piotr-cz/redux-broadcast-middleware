@@ -9,10 +9,6 @@ export default {
     {
       format: 'cjs',
       file: 'dist/index.js'
-    },
-    {
-      format: 'es',
-      file: 'dist/index.es.js'
     }
   ]
 }
