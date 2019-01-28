@@ -1,6 +1,6 @@
 {
   "name": "@piotr-cz/redux-broadcast-middleware",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sync redux state using BroadcastChannel",
   "main": "dist/index.js",
   "browser": "dist/index.js",
