@@ -2,8 +2,8 @@
   "name": "@piotr-cz/redux-broadcast-middleware",
   "version": "1.0.1",
   "description": "Sync redux state using BroadcastChannel",
-  "main": "dist/index.js",
-  "browser": "dist/index.js",
+  "browser": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/piotr-cz/redux-broadcast-middleware.git"
@@ -21,7 +21,7 @@
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "npmpublish": "npm publish --access=public",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
