@@ -25,8 +25,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "buble": "^0.19.6",
-    "rollup": "^1.1.2",
+    "buble": "^0.19.7",
+    "rollup": "^1.9.0",
     "rollup-plugin-buble": "^0.19.6"
   },
   "peerDependencies": {
