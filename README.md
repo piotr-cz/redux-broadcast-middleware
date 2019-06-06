@@ -5,6 +5,7 @@ Lightweight Redux middleware to sync state across tabs with same origin using [B
 When BroadcastChannel interface [isn't available](https://caniuse.com/#search=BroadcastChannel) (atm only Chrome 54+ or Firefox 38+) middleware is opaque (does nothing),
 however you can use polyfills. For list see [this Web fundamentals article](https://developers.google.com/web/updates/2016/09/broadcastchannel#feature_detection_and_browser_support)
 
+
 ## Installation
 
 ```sh
@@ -15,6 +16,7 @@ or
 ```
 yarn add @piotr-cz/redux-broadcast-middleware
 ```
+
 
 ## Setup
 
@@ -38,15 +40,18 @@ const store = createStore(
 )
 ```
 
+
 ### Options
 
-- _{string}_ Channel name - Used for broadcasting and listening to
-- _{array}_ Blacklist - Array of additional actions that should be ignored
+- _{string}_ **Channel name** - Used for broadcasting and listening to
+- _{array}_ **Blacklist** - Array of additional actions that should be ignored
+
 
 ## Notes
 
 - Middleware doesn't sync [Redux-persist](https://www.npmjs.com/package/redux-persist) actions (starting with `persist/` prefix) by puprose
 - Errors, Functions and DOM nodes cannot be broadcasted. For more info read [MDN: The structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
+
 
 ## Similar projects
 
