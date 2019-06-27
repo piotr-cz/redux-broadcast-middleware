@@ -1,9 +1,9 @@
 # Redux crosstab broadcast channel middleware
 
-Lightweight Redux middleware to sync state across tabs with same origin using [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel).
+Lightweight Redux middleware to sync state across browser tabs/ windows with same origin (browsing context) using [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel).
 
-When BroadcastChannel interface [isn't available](https://caniuse.com/#search=BroadcastChannel) (atm only Chrome 54+ or Firefox 38+) middleware is opaque (does nothing),
-however you can use polyfills. For list see [this Web fundamentals article](https://developers.google.com/web/updates/2016/09/broadcastchannel#feature_detection_and_browser_support)
+When BroadcastChannel interface [isn't available](https://caniuse.com/#search=BroadcastChannel) (at the moment only Chrome 54+ or Firefox 38+ are supported) middleware is opaque - does nothing.
+For list of polyfills is see [this Web fundamentals article](https://developers.google.com/web/updates/2016/09/broadcastchannel#feature_detection_and_browser_support).
 
 
 ## Installation
@@ -44,7 +44,7 @@ const store = createStore(
 ### Options
 
 - _{string}_ **Channel name** - Used for broadcasting and listening to
-- _{array}_ **Blacklist** - Array of additional actions that should be ignored
+- _{Array}_ **Blacklist** - Array of additional actions that should be ignored
 
 
 ## Notes
