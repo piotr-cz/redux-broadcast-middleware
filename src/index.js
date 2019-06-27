@@ -3,14 +3,15 @@
 /**
  * Redux state channel middleware
  * @param {string} [channelName]
- * @param {array} [blacklist]
+ * @param {Array} [blacklist]
  * @return {function}
  */
-export default function reduxBroadcastMiddleware(channelName = 'state-channel', blacklist = []) {
-
+export default function reduxBroadcastMiddleware(
+  channelName = 'state-channel',
+  blacklist = []
+) {
   // When BroadcastChannel is not available, return opaque middleware
   if (!window.BroadcastChannel) {
-
     if (process.env.NODE_ENV === 'development') {
       console.warn('BroadcastChannel API is not available')
     }
@@ -23,16 +24,18 @@ export default function reduxBroadcastMiddleware(channelName = 'state-channel', 
   // Note: using methods available in browsers which support BroadcastChannel
   return store => {
     // Listener
-    broadcastChannel.addEventListener('message', messageEvent => store.dispatch({
-      ...messageEvent.data,
-      isBroadcastReceive: true
-    }))
+    broadcastChannel.addEventListener('message', messageEvent =>
+      store.dispatch({
+        ...messageEvent.data,
+        isBroadcastReceive: true
+      })
+    )
 
-    // Not adding `messageerror` listener to handle data which cannot be deserialized as such should be catched at serialization
+    // Not adding `messageerror` listener to handle data which cannot be deserialized
+    // as such should be catched at serialization
 
     // Emitter
     return next => action => {
-
       // When action is a thunk, wait until it's resolved
       if (action instanceof Function) {
         return next(action)
@@ -41,15 +44,19 @@ export default function reduxBroadcastMiddleware(channelName = 'state-channel', 
       const { isBroadcastReceive, ...newAction } = action
 
       // Don't repost if it's an action received from channel
-      if (!isBroadcastReceive
-        && !action.type.startsWith('persist/')
-        && !blacklist.includes(action.type)
+      if (
+        !isBroadcastReceive &&
+        !action.type.startsWith('persist/') &&
+        !blacklist.includes(action.type)
       ) {
         try {
           /** @throws {DOMException} - Cannot serialize (DataCloneError) */
           broadcastChannel.postMessage(action)
         } catch (error) {
-          console.error('reduxStateChannelMiddleware post message error:', error)
+          console.error(
+            'reduxStateChannelMiddleware post message error:',
+            error
+          )
         }
       }
 
