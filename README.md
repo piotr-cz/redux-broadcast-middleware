@@ -13,7 +13,7 @@ npm install --save @piotr-cz/redux-broadcast-middleware
 ```
 or
 
-```
+```sh
 yarn add @piotr-cz/redux-broadcast-middleware
 ```
 
