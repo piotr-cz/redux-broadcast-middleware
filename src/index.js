@@ -1,10 +1,16 @@
 /* global window BroadcastChannel true */
+// @ts-check
+
+/**
+ * @typedef { {dispatch: function} } Store
+ * @typedef { {type: string, isBroadcastReceive: boolean} | function} Action
+ */
 
 /**
  * Redux state channel middleware
  * @param {string} [channelName]
- * @param {Array} [blacklist]
- * @return {function}
+ * @param {array} [blacklist]
+ * @return {(store: Store) => (next: function) => (action: Action) => any}
  */
 export default function reduxBroadcastMiddleware(
   channelName = 'state-channel',
