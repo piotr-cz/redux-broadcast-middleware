@@ -26,7 +26,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "microbundle": "^0.13.0"
+    "microbundle": "^0.13.3"
   },
   "peerDependencies": {
     "redux-persist": ">=3.5.0"
